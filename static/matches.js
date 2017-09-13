@@ -94,12 +94,26 @@ const Matches =
   Vue.component('ds-matches', {
     template: `
 <div>
-  <v-card class="facet_input">
+  <v-card>
     <v-card-text>
       <v-select
+        class="matches_input"
+        :items="knownVersions"
+        v-model="selectedVersion"
+        label="versions >="
+        dark
+        item-text="name"
+        item-value="date"
+        return-object
+        persistent-hint
+        :hint="selectedVersion.date.slice(0, 10)"
+      ></v-select>
+
+      <v-select
+        class="matches_input"
         :items="knownFacetNames"
         v-model="selectedFacetName"
-        label="Select facet"
+        label="facet by"
         dark
         item-value="text"
       ></v-select>
@@ -193,6 +207,9 @@ const Matches =
         // Currently the "Complexity" role is always present and does not actually facet.
         knownFacetNames: ["win", ...KNOWN_ATTRIBUTES, ...KNOWN_ROLES.slice(0, -1)],
         selectedFacetName: "win",
+
+        knownVersions: PATCHES.slice().reverse(),
+        selectedVersion: PATCHES[0],
       }
     },
     asyncComputed: {
@@ -201,7 +218,14 @@ const Matches =
           if (!this.$route.name) return [];
           const pid = this.$route.params["player_id"];
           if (!pid) return [];
-          const resp = await fetch(`https://api.opendota.com/api/players/${pid}/matches?significant=1`);
+
+          let url = `https://api.opendota.com/api/players/${pid}/matches?significant=1`;
+          if (this.selectedVersion !== PATCHES[0]) {
+            const d = new Date(this.selectedVersion.date);
+            const num_days = Math.ceil((new Date() - d) / (24 * 60 * 60 * 1000));
+            url += '&date=' + num_days;
+          }
+          const resp = await fetch(url);
           const origMatches = await resp.json();
           return origMatches.map(m => {
             const duration_minutes = Math.floor(m.duration / 60);
