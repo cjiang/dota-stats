@@ -1,7 +1,7 @@
 const Sidebar =
   Vue.component('ds-sidebar', {
     template: `
-    <v-navigation-drawer permanent absolute clipped dark>
+    <v-navigation-drawer clipped app>
       <v-list>
         <router-link v-for="page in pages" :key="page"
                      :to="{name: page}">

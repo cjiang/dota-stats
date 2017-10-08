@@ -4,19 +4,21 @@
 <head>
   <link href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons' rel="stylesheet">
   <link href="https://unpkg.com/vuetify/dist/vuetify.min.css" rel="stylesheet">
-<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/vega-tooltip/0.4.3/vega-tooltip.min.css">
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/vega-tooltip/0.4.3/vega-tooltip.min.css">
   <link href="static/styles.css" rel="stylesheet">
 </head>
 
 <body>
   <div id="app">
-    <v-app dark toolbar>
+    <v-app dark>
       <router-view name="header" :self="self"></router-view>
       <router-view name="sidebar" :friends="friends"></router-view>
       <main>
-        <v-container fluid>
-          <router-view :self-heroes="selfHeroes" :heroes="heroes"></router-view>
-        </v-container>
+        <v-content>
+          <v-container fluid>
+            <router-view :self-heroes="selfHeroes" :heroes="heroes"></router-view>      
+          </v-container>
+        </v-content>
       </main>
     </v-app>
   </div>
