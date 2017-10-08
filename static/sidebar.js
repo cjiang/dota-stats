@@ -28,7 +28,7 @@ const Sidebar =
     props: ["friends"],
     data () {
       return {
-        pages: ['heroes', 'roles', 'matches']
+        pages: ['heroes', 'roles', 'matches', 'streaks']
       }
     }
 });

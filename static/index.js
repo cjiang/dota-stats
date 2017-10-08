@@ -20,6 +20,12 @@ const routes = [
     props: { ...LAYOUT_PROPS, default: true }
   },
   {
+    name: "streaks",
+    path: '/streaks/:player_id',
+    components: { ...LAYOUT_COMPONENTS, default: Streaks },
+    props: { ...LAYOUT_PROPS, default: true }
+  },
+  {
     path: '/:player_id',
     redirect: { name: "heroes" },
   },
