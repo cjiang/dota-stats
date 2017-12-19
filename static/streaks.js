@@ -176,7 +176,6 @@ const Streaks = Vue.component('ds-streaks', {
     },
     autocorrelationData() {
       const wl = (this.playerMatches || []).map(m => m.win);
-      console.log(wl);
       const values = [];
       return {values};
     },

@@ -3,7 +3,7 @@
 
 <head>
   <link href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons' rel="stylesheet">
-  <link href="https://unpkg.com/vuetify/dist/vuetify.min.css" rel="stylesheet">
+  <link href="https://unpkg.com/vuetify@1.0.0-alpha.3/dist/vuetify.min.css" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/vega-tooltip/0.4.3/vega-tooltip.min.css">
   <link href="static/styles.css" rel="stylesheet">
 </head>
@@ -13,19 +13,17 @@
     <v-app dark>
       <router-view name="header" :self="self"></router-view>
       <router-view name="sidebar" :friends="friends"></router-view>
-      <main>
-        <v-content>
-          <v-container fluid>
-            <router-view :self-heroes="selfHeroes" :heroes="heroes"></router-view>      
-          </v-container>
-        </v-content>
-      </main>
+      <v-content>
+        <v-container fluid>
+          <router-view :self-heroes="selfHeroes" :heroes="heroes"></router-view>      
+        </v-container>
+      </v-content>
     </v-app>
   </div>
   <script src="https://unpkg.com/vue/dist/vue.js"></script>
   <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
   <script src="https://unpkg.com/vue-async-computed"></script>
-  <script src="https://unpkg.com/vuetify/dist/vuetify.js"></script>
+  <script src="https://unpkg.com/vuetify@1.0.0-alpha.3/dist/vuetify.js"></script>
 
   <!--<script src="https://unpkg.com/vue-vega@1.0.0-beta.3/"></script>-->
 

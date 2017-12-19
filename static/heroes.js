@@ -10,7 +10,7 @@ const Heroes =
         :pagination.sync="pagination"
         dark>
 
-      <template slot="headers" scope="props">
+      <template slot="headers" slot-scope="props">
         <tr>
           <th v-for="header in props.headers" :key="header.text"
             :class="['text-xs-left subheading column sortable',
@@ -24,7 +24,7 @@ const Heroes =
         </tr>
       </template>
 
-      <template slot="items" scope="props">
+      <template slot="items" slot-scope="props">
         <td>{{ props.item.name }}</td>
         <td :style="props.item.betaCssGradient"></td>
         <td>{{ (props.item.muMinus * 100).toFixed() }}%</td>
