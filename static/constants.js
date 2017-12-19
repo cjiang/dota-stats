@@ -103,6 +103,10 @@ const PATCHES = [
   {
     'name': '7.06',
     'date': '2017-05-15T15:00:00Z'
+  },
+  {
+    'name': '7.07',
+    'date': '2017-10-31T23:00:00Z'
   }
 ];
 
@@ -915,5 +919,21 @@ const ROLES = {
   'Zeus': {
     'Complexity': 1,
     'Nuker': 3
+  },
+  'Pangolier': {
+    'Carry': 2,
+    'Nuker': 2,
+    'Initiator': 2,
+    'Disabler': 1,
+    'Durable': 1,
+    'Escape': 2,
+    'Complexity': 2
+  },
+  'Dark Willow': {
+    'Nuker': 2,
+    'Disabler': 1,
+    'Escape': 2,
+    'Support': 2,
+    'Complexity': 2
   }
 };
